@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Asaas National School – Gujranwala</title>
+  <meta name="description" content="Official website for Asaas National School – Gujranwala: admissions, campuses, academics, student life, news & careers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#0a8a5c;--brand-2:#0f5132;--accent:#ffb703;
+      --text:#111827;--muted:#6b7280;--bg:#ffffff;--bg-soft:#f8fafc;
+      --radius:14px;--shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;}
+    body.rtl{direction:rtl;font-family:"Noto Nastaliq Urdu", serif;}
+    a{color:var(--brand);text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin-inline:auto}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--brand);color:#fff;padding:.9rem 1rem;border-radius:12px;border:0;cursor:pointer;font-weight:700;box-shadow:var(--shadow);min-height:44px;min-width:44px}
+    .btn.secondary{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+    .btn.light{background:#e8fff6;color:var(--brand)}
+    .tag{display:inline-block;padding:.35rem .7rem;border-radius:999px;background:#e8fff6;color:var(--brand);font-weight:700;font-size:.85rem}
+
+    header.site{position:sticky;top:0;z-index:30;background:#ffffffcc;backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eef2f7}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
+    .brand-wrap{display:flex;align-items:center;gap:.5rem}
+    .brand-title{font-weight:800;letter-spacing:.2px}
+    .links{display:flex;align-items:center;gap:.25rem;flex-wrap:wrap}
+    .nav a.link{padding:.6rem .75rem;border-radius:10px;color:var(--text)}
+    .nav a.link:hover{background:var(--bg-soft)}
+    .actions{display:flex;gap:.5rem;align-items:center}
+
+    /* Mobile menu */
+    .hamburger{display:none;border:1px solid #e5e7eb;border-radius:10px;background:#fff;padding:.55rem .7rem}
+    .mobile-panel{position:fixed;inset:0 0 auto 0;top:56px;background:#fff;border-top:1px solid #eef2f7;display:none;flex-direction:column;padding:1rem;gap:.25rem}
+    .mobile-panel a{padding:.85rem 1rem;border-radius:10px}
+    .nav.open .mobile-panel{display:flex}
+
+    .hero{padding:1.5rem 0 1.25rem;display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem;align-items:start}
+    .hero h1{font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.15;margin:.2rem 0}
+    .hero p{color:var(--muted);font-size:clamp(.95rem,1.8vw,1.05rem)}
+    .card{background:#fff;border:1px solid #eef2f7;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card.pad{padding:1rem}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+
+    section{padding:1.4rem 0}
+    h2{font-size:clamp(1.3rem,2.2vw,1.6rem);margin:0 0 .8rem}
+    h3{margin:.6rem 0}
+
+    .pill-tabs{display:flex;gap:.5rem;flex-wrap:wrap}
+    .pill-tabs button{border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:.6rem .9rem;min-height:44px}
+    .pill-tabs button.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+    .accordion .item{border:1px solid #e5e7eb;border-radius:12px;margin:.5rem 0;background:#fff}
+    .accordion .q{cursor:pointer;padding:.9rem 1rem;font-weight:700}
+    .accordion .a{display:none;padding:0 1rem 1rem;color:var(--muted)}
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+    .gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;cursor:pointer}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:2rem}
+    .lightbox img{max-width:95vw;max-height:85vh;border-radius:10px}
+
+    .notice{display:flex;gap:.7rem;align-items:center;padding:.7rem;border:1px dashed var(--brand);border-radius:12px;background:#f6fffb}
+
+    footer{padding:2rem 0 6rem;background:var(--bg-soft);margin-top:2rem;border-top:1px solid #eef2f7}
+
+    .whatsapp-fab{position:fixed;bottom:18px;right:18px;z-index:50}
+
+    /* Admin panel */
+    .admin-floating{position:fixed;bottom:18px;left:18px;z-index:50}
+    .admin{position:fixed;inset:0;background:#0006;display:none;align-items:center;justify-content:center;padding:1rem}
+    .admin .panel{width:min(900px,96vw);max-height:88vh;overflow:auto;background:#fff;border-radius:16px;padding:1rem}
+    .admin label{display:block;font-weight:700;margin-top:.6rem}
+    .admin input,.admin textarea, .admin select{width:100%;padding:.8rem;border:1px solid #e5e7eb;border-radius:12px;min-height:44px}
+
+    /* Chips */
+    .chips{display:flex;flex-wrap:wrap;gap:.5rem}
+    .chip{background:#eef2f7;padding:.45rem .7rem;border-radius:999px;font-size:.9rem}
+
+    /* Maps placeholder iframe responsive */
+    .map{position:relative;padding-bottom:56%;height:0;overflow:hidden;border-radius:12px;border:1px solid #e5e7eb}
+    .map iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+    /* ======== Mobile tweaks ======== */
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+    @media(max-width:720px){
+      .links{display:none}
+      .hamburger{display:inline-flex}
+      .hero{gap:.9rem}
+      .hero .card{order:-1} /* show form first on phones */
+      .btn{width:100%}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:420px){
+      .tag{font-size:.8rem}
+      .gallery{grid-template-columns:1fr}
+    }
+  </style>
+
+  <script type="application/ld+json" id="schema-json">{
+    "@context":"https://schema.org","@type":"Organization","name":"Asaas National School","url":"https://asaas.example","logo":"","sameAs":[],"department":[{"@type":"School","name":"Asaas – Cantt Campus","address":"","telephone":""},{"@type":"School","name":"Asaas – Ghakkhar Campus","address":"","telephone":""},{"@type":"School","name":"Asaas – Satellite Town","address":"","telephone":""}]}
+  </script>
+</head>
+
+<body>
+  <header class="site">
+    <div class="container nav" id="top-nav">
+      <div class="brand-wrap">
+        <button class="hamburger" id="menu-toggle" aria-label="Open menu" aria-controls="mobile-panel" aria-expanded="false">☰</button>
+        <div class="brand-title">Asaas National School</div>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a class="link" href="#home" data-i18n="nav_home">Home</a>
+        <a class="link" href="#admissions" data-i18n="nav_admissions">Admissions</a>
+        <a class="link" href="#campuses" data-i18n="nav_campuses">Campuses</a>
+        <a class="link" href="#academics" data-i18n="nav_academics">Academics</a>
+        <a class="link" href="#life" data-i18n="nav_life">Student Life</a>
+        <a class="link" href="#news" data-i18n="nav_news">News</a>
+        <a class="link" href="#downloads" data-i18n="nav_downloads">Downloads</a>
+        <a class="link" href="#careers" data-i18n="nav_careers">Careers</a>
+        <a class="link" href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button id="lang-en" class="active" aria-pressed="true">EN</button>
+          <button id="lang-ur" aria-pressed="false">اردو</button>
+        </div>
+        <button class="btn light" id="admin-open">Admin</button>
+      </div>
+    </div>
+    <div class="mobile-panel container" id="mobile-panel" hidden>
+      <a class="link" href="#home" data-i18n="nav_home">Home</a>
+      <a class="link" href="#admissions" data-i18n="nav_admissions">Admissions</a>
+      <a class="link" href="#campuses" data-i18n="nav_campuses">Campuses</a>
+      <a class="link" href="#academics" data-i18n="nav_academics">Academics</a>
+      <a class="link" href="#life" data-i18n="nav_life">Student Life</a>
+      <a class="link" href="#news" data-i18n="nav_news">News</a>
+      <a class="link" href="#downloads" data-i18n="nav_downloads">Downloads</a>
+      <a class="link" href="#careers" data-i18n="nav_careers">Careers</a>
+      <a class="link" href="#contact" data-i18n="nav_contact">Contact</a>
+    </div>
+  </header>
+
+  <main id="home" class="container">
+    <div class="hero">
+      <div>
+        <span class="tag" data-i18n="admissions_open">Admissions Open</span>
+        <h1 data-i18n="hero_title">Asaas National School – Gujranwala</h1>
+        <p data-i18n="hero_sub">A values-driven school focused on strong academics, character, and co‑curricular growth across our Gujranwala campuses.</p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem">
+          <a class="btn" href="#admissions" data-i18n="cta_apply">Apply Now</a>
+          <a class="btn secondary" href="#campuses" data-i18n="cta_visit">Visit a Campus</a>
+        </div>
+        <div class="notice" style="margin-top:1rem">
+          <strong>📅</strong>
+          <div>
+            <div data-i18n="notice_line1">Entrance assessments every Saturday</div>
+            <small class="muted" data-i18n="notice_line2">Bring last term report card and CNIC copy</small>
+          </div>
+        </div>
+        <div class="grid-3" style="margin-top:1rem">
+          <div class="card pad"><h3 data-i18n="usp1">Strong Matric Results</h3><p class="muted" data-i18n="usp1_d">Focused preparation, teacher mentoring, regular assessments.</p></div>
+          <div class="card pad"><h3 data-i18n="usp2">Holistic Development</h3><p class="muted" data-i18n="usp2_d">Debates, sports, robotics club, field trips and more.</p></div>
+          <div class="card pad"><h3 data-i18n="usp3">Safe & Caring</h3><p class="muted" data-i18n="usp3_d">Secure campuses, disciplined culture, parent communication.</p></div>
+        </div>
+      </div>
+      <div class="card pad">
+        <h3 style="margin-top:0" data-i18n="quick_apply">Quick Admission Inquiry</h3>
+        <form id="lead-form">
+          <label data-i18n="f_parent" for="f_parent">Parent Name</label>
+          <input id="f_parent" required name="parent" placeholder="e.g., Ayesha Khan" inputmode="text" autocomplete="name" />
+
+          <label data-i18n="f_child" for="f_child">Child Name</label>
+          <input id="f_child" required name="child" placeholder="e.g., Bilal Khan" inputmode="text" />
+
+          <label data-i18n="f_grade" for="f_grade">Applying for Grade</label>
+          <select id="f_grade" name="grade" required>
+            <option value="Playgroup">Playgroup</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Prep">Prep</option>
+            <option value="Grade 1">Grade 1</option>
+            <option value="Grade 2">Grade 2</option>
+            <option value="Grade 3">Grade 3</option>
+            <option value="Grade 4">Grade 4</option>
+            <option value="Grade 5">Grade 5</option>
+            <option value="Grade 6">Grade 6</option>
+            <option value="Grade 7">Grade 7</option>
+            <option value="Grade 8">Grade 8</option>
+            <option value="Grade 9">Grade 9</option>
+            <option value="Grade 10">Grade 10</option>
+          </select>
+
+          <label data-i18n="f_campus" for="lead-campus">Preferred Campus</label>
+          <select name="campus" id="lead-campus" required></select>
+
+          <label data-i18n="f_phone" for="f_phone">Phone / WhatsApp</label>
+          <input id="f_phone" required name="phone" placeholder="03xx-xxxxxxx" inputmode="tel" autocomplete="tel" />
+
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem">
+            <button class="btn" type="submit" data-i18n="f_submit">Send on WhatsApp</button>
+            <a class="btn secondary" href="#downloads" data-i18n="f_download">Download Prospectus</a>
+          </div>
+          <small class="muted" data-i18n="privacy">We only use your details to contact you about admissions.</small>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <section id="admissions" class="container">
+    <h2 data-i18n="ad_title">Admissions</h2>
+    <div class="grid-2">
+      <div class="card pad">
+        <h3 data-i18n="ad_process">Process</h3>
+        <ol>
+          <li data-i18n="ad_p1">Submit the inquiry (above) or visit your nearest campus.</li>
+          <li data-i18n="ad_p2">Sit for a short baseline assessment.</li>
+          <li data-i18n="ad_p3">Meet the coordinator and complete registration.</li>
+        </ol>
+        <div class="accordion" id="fee-accordion">
+          <div class="item">
+            <div class="q" data-i18n="ad_feeq">What is the fee range?</div>
+            <div class="a" data-i18n="ad_feea">Fee varies by grade and campus. Our admin will share the exact structure on WhatsApp.</div>
+          </div>
+          <div class="item">
+            <div class="q" data-i18n="ad_docsq">What documents are required?</div>
+            <div class="a" data-i18n="ad_docsa">CNIC (parent/guardian), B-Form, last two report cards, 2 photos.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card pad">
+        <h3 data-i18n="ad_dates">Key Dates</h3>
+        <ul id="dates-list"><li>Every Saturday – Assessments (10:00 AM)</li></ul>
+        <div style="margin-top:1rem">
+          <button class="btn" id="add-date" data-i18n="ad_adddate">Add Date (Admin)</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="campuses" class="container">
+    <h2 data-i18n="camp_title">Campuses</h2>
+    <div class="pill-tabs" id="camp-tabs"></div>
+    <div id="camp-content" style="margin-top:1rem"></div>
+  </section>
+
+  <section id="academics" class="container">
+    <h2 data-i18n="ac_title">Academics</h2>
+    <div class="grid-3">
+      <div class="card pad"><h3 data-i18n="ac_ey">Early Years</h3><p class="muted" data-i18n="ac_ey_d">Play-based learning, phonics, numeracy, social skills.</p></div>
+      <div class="card pad"><h3 data-i18n="ac_pr">Primary</h3><p class="muted" data-i18n="ac_pr_d">Strong foundations in English, Urdu, Maths, Science, Islamiyat.</p></div>
+      <div class="card pad"><h3 data-i18n="ac_ml">Middle &amp; Matric</h3><p class="muted" data-i18n="ac_ml_d">Focused preparation for Matric streams with regular testing.</p></div>
+    </div>
+    <div class="chips" style="margin-top:.8rem">
+      <span class="chip">English</span><span class="chip">Urdu</span><span class="chip">Mathematics</span><span class="chip">Science</span><span class="chip">Computer</span><span class="chip">Islamiat</span>
+    </div>
+  </section>
+
+  <section id="life" class="container">
+    <h2 data-i18n="life_title">Student Life</h2>
+    <p class="muted" data-i18n="life_copy">Assemblies, sports, debates, robotics, field trips—learning beyond textbooks.</p>
+    <div class="gallery" id="gallery"></div>
+    <div style="margin-top:.6rem"><button class="btn" id="add-gallery" data-i18n="life_add">Add Photos (Admin)</button></div>
+  </section>
+
+  <section id="news" class="container">
+    <h2 data-i18n="news_title">News & Notices</h2>
+    <div id="news-list"></div>
+    <div style="margin-top:.6rem"><button class="btn" id="add-news" data-i18n="news_add">Add Notice (Admin)</button></div>
+  </section>
+
+  <section id="downloads" class="container">
+    <h2 data-i18n="dl_title">Downloads</h2>
+    <div class="grid-3">
+      <a class="card pad" download href="data:text/plain;charset=utf-8,Prospectus%20placeholder%20-%20replace%20link%20via%20Admin"><strong data-i18n="dl_prospectus">Prospectus</strong><p class="muted" data-i18n="dl_prospectus_d">Click to download</p></a>
+      <a class="card pad" download href="data:text/plain,Academic%20Calendar%20placeholder"><strong data-i18n="dl_calendar">Academic Calendar</strong><p class="muted" data-i18n="dl_calendar_d">Click to download</p></a>
+      <a class="card pad" download href="data:text/plain,Booklists%20placeholder"><strong data-i18n="dl_books">Booklists</strong><p class="muted" data-i18n="dl_books_d">Click to download</p></a>
+    </div>
+  </section>
+
+  <section id="careers" class="container">
+    <h2 data-i18n="jobs_title">Careers</h2>
+    <p class="muted" data-i18n="jobs_copy">We’re always looking for great teachers and staff. Share your details and we’ll get back to you.</p>
+    <form id="jobs-form" class="card pad" style="max-width:700px">
+      <label data-i18n="jobs_name" for="jobs_name">Full Name</label>
+      <input id="jobs_name" required name="name" autocomplete="name" />
+      <label data-i18n="jobs_role" for="jobs_role">Role</label>
+      <select id="jobs_role" name="role" required>
+        <option>Teacher (Primary)</option>
+        <option>Teacher (Middle/Matric)</option>
+        <option>Coordinator</option>
+        <option>Admin/Accounts</option>
+      </select>
+      <label data-i18n="jobs_phone" for="jobs_phone">Phone / WhatsApp</label>
+      <input id="jobs_phone" name="phone" inputmode="tel" autocomplete="tel" required />
+      <label data-i18n="jobs_msg" for="jobs_msg">Message</label>
+      <textarea id="jobs_msg" name="message" rows="4" placeholder="Experience, subjects, availability"></textarea>
+      <div style="margin-top:.6rem"><button class="btn" type="submit" data-i18n="jobs_submit">Send via WhatsApp</button></div>
+    </form>
+  </section>
+
+  <section id="contact" class="container">
+    <h2 data-i18n="contact_title">Contact</h2>
+    <div id="contact-cards" class="grid-3"></div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="grid-3">
+        <div>
+          <h3>Asaas National School</h3>
+          <p class="muted">Gujranwala, Pakistan</p>
+          <div class="chips"><span class="chip">Facebook</span><span class="chip">Instagram</span><span class="chip">Google Maps</span></div>
+        </div>
+        <div>
+          <h3 data-i18n="footer_links">Quick Links</h3>
+          <p><a href="#admissions">Admissions</a> · <a href="#campuses">Campuses</a> · <a href="#downloads">Downloads</a></p>
+        </div>
+        <div>
+          <h3 data-i18n="footer_visit">Visit Us</h3>
+          <p class="muted" data-i18n="footer_visit_d">Choose your nearest campus from above to see map & timings.</p>
+        </div>
+      </div>
+      <p style="margin-top:1rem;color:var(--muted)">© <span id="year"></span> Asaas National School</p>
+    </div>
+  </footer>
+
+  <div class="whatsapp-fab"><a id="wa-fab" class="btn" href="#">💬 <span data-i18n="wa_chat">Chat on WhatsApp</span></a></div>
+  <div class="admin-floating"><button class="btn secondary" id="admin-open-2">⚙️ <span data-i18n="admin_btn">Edit Site</span></button></div>
+
+  <div class="admin" id="admin">
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem">
+        <h3 style="margin:0">Admin – Site Settings</h3>
+        <button class="btn" id="admin-close">Close</button>
+      </div>
+      <p class="muted">PIN protected (default 1234). Update campuses, phones, maps, socials, and content. Saved to browser (localStorage).</p>
+
+      <fieldset class="card pad" style="margin-top:1rem">
+        <legend><strong>Organization</strong></legend>
+        <label>Official Name</label><input id="org-name" placeholder="Asaas National School" />
+        <label>Website URL</label><input id="org-url" placeholder="https://asaas.example" />
+        <label>Logo (data URL or absolute URL)</label><input id="org-logo" placeholder="https://..." />
+        <label>Social Links (comma separated)</label><input id="org-socials" placeholder="https://facebook.com/..., https://instagram.com/..." />
+      </fieldset>
+
+      <fieldset class="card pad" style="margin-top:1rem">
+        <legend><strong>Campuses</strong></legend>
+        <div id="camp-admin"></div>
+        <button class="btn" id="add-campus">+ Add Campus</button>
+      </fieldset>
+
+      <fieldset class="card pad" style="margin-top:1rem">
+        <legend><strong>Gallery</strong></legend>
+        <label>Image URLs (comma separated)</label>
+        <textarea id="gallery-urls" rows="3" placeholder="https://...jpg, https://...png"></textarea>
+      </fieldset>
+
+      <fieldset class="card pad" style="margin-top:1rem">
+        <legend><strong>News & Dates</strong></legend>
+        <label>Notices (one per line)</label>
+        <textarea id="news-items" rows="4" placeholder="Admissions open...\nParent teacher meeting on ..."></textarea>
+        <label>Key Dates (one per line)</label>
+        <textarea id="dates-items" rows="3" placeholder="Every Saturday — Assessments (10:00 AM)"></textarea>
+      </fieldset>
+
+      <div style="display:flex;gap:.6rem;margin-top:1rem">
+        <button class="btn" id="save-admin">💾 Save</button>
+        <button class="btn secondary" id="reset-admin">♻️ Reset to Defaults</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox"><img alt=""/></div>
+
+  <script>
+  /* --- Bilingual (EN/UR) dictionary --- */
+  const i18n = { en:{
+      motto:"Live to Learn",
+      nav_home:"Home",nav_admissions:"Admissions",nav_campuses:"Campuses",nav_academics:"Academics",nav_life:"Student Life",nav_news:"News",nav_downloads:"Downloads",nav_careers:"Careers",nav_contact:"Contact",
+      admissions_open:"Admissions Open",hero_title:"Asaas National School – Gujranwala",hero_sub:"A values-driven school focused on strong academics, character, and co‑curricular growth across our Gujranwala campuses.",
+      cta_apply:"Apply Now",cta_visit:"Visit a Campus",notice_line1:"Entrance assessments every Saturday",notice_line2:"Bring last term report card and CNIC copy",
+      usp1:"Strong Matric Results",usp1_d:"Focused preparation, teacher mentoring, regular assessments.",usp2:"Holistic Development",usp2_d:"Debates, sports, robotics club, field trips and more.",usp3:"Safe & Caring",usp3_d:"Secure campuses, disciplined culture, parent communication.",
+      quick_apply:"Quick Admission Inquiry",f_parent:"Parent Name",f_child:"Child Name",f_grade:"Applying for Grade",f_campus:"Preferred Campus",f_phone:"Phone / WhatsApp",f_submit:"Send on WhatsApp",f_download:"Download Prospectus",privacy:"We only use your details to contact you about admissions.",
+      ad_title:"Admissions",ad_process:"Process",ad_p1:"Submit the inquiry (above) or visit your nearest campus.",ad_p2:"Sit for a short baseline assessment.",ad_p3:"Meet the coordinator and complete registration.",ad_feeq:"What is the fee range?",ad_feea:"Fee varies by grade and campus. Our admin will share the exact structure on WhatsApp.",ad_docsq:"What documents are required?",ad_docsa:"CNIC (parent/guardian), B-Form, last two report cards, 2 photos.",ad_dates:"Key Dates",ad_adddate:"Add Date (Admin)",
+      camp_title:"Campuses",
+      ac_title:"Academics",ac_ey:"Early Years",ac_ey_d:"Play-based learning, phonics, numeracy, social skills.",ac_pr:"Primary",ac_pr_d:"Strong foundations in English, Urdu, Maths, Science, Islamiyat.",ac_ml:"Middle & Matric",ac_ml_d:"Focused preparation for Matric streams with regular testing.",
+      life_title:"Student Life",life_copy:"Assemblies, sports, debates, robotics, field trips—learning beyond textbooks.",life_add:"Add Photos (Admin)",
+      news_title:"News & Notices",news_add:"Add Notice (Admin)",
+      dl_title:"Downloads",dl_prospectus:"Prospectus",dl_prospectus_d:"Click to download",dl_calendar:"Academic Calendar",dl_calendar_d:"Click to download",dl_books:"Booklists",dl_books_d:"Click to download",
+      jobs_title:"Careers",jobs_copy:"We’re always looking for great teachers and staff. Share your details and we’ll get back to you.",jobs_name:"Full Name",jobs_role:"Role",jobs_phone:"Phone / WhatsApp",jobs_msg:"Message",jobs_submit:"Send via WhatsApp",
+      contact_title:"Contact",footer_links:"Quick Links",footer_visit:"Visit Us",footer_visit_d:"Choose your nearest campus from above to see map & timings.",
+      wa_chat:"Chat on WhatsApp",admin_btn:"Edit Site"
+    }, ur:{
+      motto:"سیکھنے کے لئے جئیں",
+      nav_home:"ہوم",nav_admissions:"داخلہ",nav_campuses:"کیمپسز",nav_academics:"اکیڈمکس",nav_life:"طالب علم زندگی",nav_news:"خبریں",nav_downloads:"ڈاؤن لوڈز",nav_careers:"ملازمتیں",nav_contact:"رابطہ",
+      admissions_open:"داخلے جاری ہیں",hero_title:"اساس نیشنل اسکول – گوجرانوالہ",hero_sub:"مضبوط نصاب، کردار سازی اور ہم نصابی سرگرمیوں پر مبنی تعلیم۔",
+      cta_apply:"ابھی اپلائی کریں",cta_visit:"قریب ترین کیمپس دیکھیں",notice_line1:"داخلہ ٹیسٹ ہر ہفتہ",notice_line2:"آخری رپورٹ کارڈ اور شناختی کارڈ کی فوٹو کاپی لائیں",
+      usp1:"میٹرک کے بہترین نتائج",usp1_d:"ہدفی تیاری، اساتذہ کی رہنمائی، باقاعدہ ٹیسٹ.",usp2:"ہمہ جہت نشوونما",usp2_d:"مباحثے، کھیل، روبوٹکس کلب، تعلیمی دورے.",usp3:"محفوظ اور خیال رکھنے والا",usp3_d:"محفوظ کیمپس، نظم و ضبط، والدین سے رابطہ.",
+      quick_apply:"فوری داخلہ استفسار",f_parent:"والدین کا نام",f_child:"بچے کا نام",f_grade:"جس جماعت میں داخلہ",f_campus:"پسندیدہ کیمپس",f_phone:"فون / واٹس ایپ",f_submit:"واٹس ایپ پر بھیجیں",f_download:"پروسپیکٹس ڈاؤن لوڈ کریں",privacy:"ہم آپ کی معلومات صرف داخلہ کے لئے استعمال کرتے ہیں۔",
+      ad_title:"داخلہ",ad_process:"طریقہ کار",ad_p1:"استفسار جمع کریں یا قریب ترین کیمپس آئیں.",ad_p2:"مختصر تشخیصی ٹیسٹ دیں.",ad_p3:"کوآرڈینیٹر سے ملاقات اور رجسٹریشن مکمل کریں.",ad_feeq:"فیس کتنی ہے؟",ad_feea:"فیس جماعت اور کیمپس کے مطابق مختلف ہوتی ہے۔ تفصیل واٹس ایپ پر دی جائے گی.",ad_docsq:"کون سے دستاویز درکار ہیں؟",ad_docsa:"والدین کا شناختی کارڈ، ب فارم، پچھلی دو رپورٹیں، 2 تصاویر.",ad_dates:"اہم تاریخیں",ad_adddate:"تاریخ شامل کریں (ایڈمن)",
+      camp_title:"کیمپسز",
+      ac_title:"اکیڈمکس",ac_ey:"ابتدائی جماعتیں",ac_ey_d:"کھیل کے ذریعے سیکھنا، فونکس، نمبر کی پہچان.",ac_pr:"پرائمری",ac_pr_d:"انگریزی، اردو، ریاضی، سائنس، اسلامیات میں مضبوط بنیادیں.",ac_ml:"مڈل و میٹرک",ac_ml_d:"میٹرک کی ہدفی تیاری کے ساتھ باقاعدہ ٹیسٹنگ.",
+      life_title:"طالب علم زندگی",life_copy:"اسمبلیز، کھیل، مباحثے، روبوٹکس، مطالعاتی دورے—کتاب سے آگے سیکھنا.",life_add:"تصاویر شامل کریں (ایڈمن)",
+      news_title:"خبریں اور اعلانات",news_add:"اعلان شامل کریں (ایڈمن)",
+      dl_title:"ڈاؤن لوڈز",dl_prospectus:"پروسپیکٹس",dl_prospectus_d:"ڈاؤن لوڈ کریں",dl_calendar:"اکیڈمک کیلنڈر",dl_calendar_d:"ڈاؤن لوڈ کریں",dl_books:"کتابوں کی فہرست",dl_books_d:"ڈاؤن لوڈ کریں",
+      jobs_title:"ملازمتیں",jobs_copy:"بہترین اساتذہ و اسٹاف کی تلاش ہے۔ اپنی تفصیل بھیجیں، ہم رابطہ کریں گے.",jobs_name:"پورا نام",jobs_role:"عہدہ",jobs_phone:"فون / واٹس ایپ",jobs_msg:"پیغام",jobs_submit:"واٹس ایپ پر بھیجیں",
+      contact_title:"رابطہ",footer_links:"فوری روابط",footer_visit:"ہم سے ملیں",footer_visit_d:"اوپر سے قریب ترین کیمپس منتخب کریں۔",
+      wa_chat:"واٹس ایپ پر بات کریں",admin_btn:"سائٹ ایڈٹ کریں"
+    }}
+
+  const defaults = {
+    org:{name:"Asaas National School",url:"https://asaas.example",logo:"",socials:["https://facebook.com/", "https://instagram.com/"]},
+    campuses:[
+      {id:crypto.randomUUID(),name:"Cantt Campus",phone:"+923001234567",whatsApp:"+923001234567",address:"Cantt, Gujranwala",timings:"Mon–Sat, 8:00–2:00",map:"https://www.google.com/maps?q=Gujranwala+Cantt&output=embed"},
+      {id:crypto.randomUUID(),name:"Ghakkhar Campus",phone:"+923111234567",whatsApp:"+923111234567",address:"Ghakhar Mandi, Gujranwala",timings:"Mon–Sat, 8:00–2:00",map:"https://www.google.com/maps?q=Ghakkhar+Mandi&output=embed"},
+      {id:crypto.randomUUID(),name:"Satellite Town",phone:"+923211234567",whatsApp:"+923211234567",address:"Satellite Town, Gujranwala",timings:"Mon–Sat, 8:00–2:00",map:"https://www.google.com/maps?q=Satellite+Town+Gujranwala&output=embed"}
+    ],
+    gallery:[
+      "https://images.unsplash.com/photo-1606326608691-31e3d1bd7b1e?auto=format&fit=crop&w=900&q=60",
+      "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=60",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=900&q=60"
+    ],
+    news:["Admissions open for 2025–26.","PTM scheduled next Friday (11:00 AM)."],
+    dates:["Every Saturday – Assessments (10:00 AM)"]
+  }
+
+  const $ = (s, r=document)=> r.querySelector(s); const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const state = JSON.parse(localStorage.getItem('asaas-site')||'null') || defaults;
+  let currentLang='en'; let activeCampusIndex=0;
+
+  function save(){localStorage.setItem('asaas-site', JSON.stringify(state)); renderAll();}
+
+  /* --- Lang & mobile menu --- */
+  function setLang(lang){ currentLang=lang; document.body.classList.toggle('rtl', lang==='ur');
+    $$('#lang-en, #lang-ur').forEach(b=>b.classList.remove('active')); $(`#lang-${lang}`).classList.add('active');
+    $$('#lang-en, #lang-ur').forEach(b=>b.setAttribute('aria-pressed','false')); $(`#lang-${lang}`).setAttribute('aria-pressed','true');
+    $$('[data-i18n]').forEach(el=>{ const k=el.getAttribute('data-i18n'); el.textContent = (i18n[lang][k]||el.textContent); });
+  }
+  $('#lang-en').onclick=()=>setLang('en'); $('#lang-ur').onclick=()=>setLang('ur');
+  const nav=$('#top-nav'); const mp=$('#mobile-panel'); const mt=$('#menu-toggle');
+  mt.addEventListener('click',()=>{ const open=!nav.classList.contains('open'); nav.classList.toggle('open', open); mp.hidden=!open; mt.setAttribute('aria-expanded', String(open)); });
+  mp.addEventListener('click', (e)=>{ if(e.target.matches('a')){nav.classList.remove('open'); mp.hidden=true; mt.setAttribute('aria-expanded','false');} });
+
+  /* --- Forms -> WhatsApp --- */
+  $('#lead-form').addEventListener('submit', (e)=>{
+    e.preventDefault(); const fd=new FormData(e.target);
+    const campusName = fd.get('campus'); const campus=state.campuses.find(c=>c.name===campusName) || state.campuses[0];
+    const msg = `Admission Inquiry\nParent: ${fd.get('parent')}\nChild: ${fd.get('child')}\nGrade: ${fd.get('grade')}\nCampus: ${campusName}\nPhone: ${fd.get('phone')}`;
+    const url = `https://wa.me/${encodeURIComponent((campus.whatsApp||campus.phone).replace(/[^+0-9]/g,''))}?text=${encodeURIComponent(msg)}`;
+    window.open(url,'_blank');
+  });
+  $('#jobs-form').addEventListener('submit', (e)=>{
+    e.preventDefault(); const fd=new FormData(e.target); const c=state.campuses[0];
+    const msg = `Job Application\nName: ${fd.get('name')}\nRole: ${fd.get('role')}\nPhone: ${fd.get('phone')}\nMessage: ${fd.get('message')}`;
+    const url = `https://wa.me/${encodeURIComponent((c.whatsApp||c.phone).replace(/[^+0-9]/g,''))}?text=${encodeURIComponent(msg)}`;
+    window.open(url,'_blank');
+  });
+
+  /* --- Accordion --- */
+  $('#fee-accordion').addEventListener('click', (e)=>{
+    const item=e.target.closest('.item'); if(!item)return; const a=item.querySelector('.a'); a.style.display = a.style.display==='block'?'none':'block';
+  });
+
+  /* --- Campuses --- */
+  function renderCampuses(){
+    const tabs=$('#camp-tabs'); tabs.innerHTML='';
+    state.campuses.forEach((c,idx)=>{
+      const b=document.createElement('button'); b.textContent=c.name; b.className=idx===activeCampusIndex?'active':''; b.style.minHeight='44px';
+      b.onclick=()=>{activeCampusIndex=idx; renderCampuses();}; tabs.appendChild(b);
+    });
+    const c=state.campuses[activeCampusIndex]||state.campuses[0];
+    const wrap=$('#camp-content');
+    wrap.innerHTML=`
+      <div class="grid-2">
+        <div class="card pad">
+          <h3>${c.name}</h3>
+          <p><strong>Address:</strong> ${c.address||'-'}</p>
+          <p><strong>Timings:</strong> ${c.timings||'-'}</p>
+          <p><strong>Phone:</strong> <a href="tel:${(c.phone||'').replace(/[^+0-9]/g,'')}">${c.phone||'-'}</a></p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem;width:100%">
+            <a class="btn" style="flex:1" target="_blank" href="https://wa.me/${(c.whatsApp||c.phone).replace(/[^+0-9]/g,'')}">💬 WhatsApp</a>
+            <a class="btn secondary" style="flex:1" href="#admissions">Apply to ${c.name}</a>
+          </div>
+        </div>
+        <div class="map card"><iframe src="${c.map||''}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>`;
+    const cc=$('#contact-cards'); cc.innerHTML='';
+    state.campuses.forEach((x)=>{
+      const card=document.createElement('div'); card.className='card pad';
+      card.innerHTML=`<h3>${x.name}</h3><p>${x.address}</p><p>${x.timings}</p><p><a href="tel:${(x.phone||'').replace(/[^+0-9]/g,'')}">${x.phone}</a></p><div style="display:flex;gap:.5rem"><a class="btn" style="flex:1" target="_blank" href="https://wa.me/${(x.whatsApp||x.phone).replace(/[^+0-9]/g,'')}">WhatsApp</a><a class="btn secondary" style="flex:1" href="#admissions">Apply</a></div>`;
+      cc.appendChild(card);
+    });
+    const wa=`https://wa.me/${(c.whatsApp||c.phone).replace(/[^+0-9]/g,'')}`; $('#wa-fab').href=wa;
+  }
+
+  /* --- Gallery --- */
+  function renderGallery(){
+    const g=$('#gallery'); g.innerHTML='';
+    (state.gallery||[]).forEach(src=>{
+      const img=new Image(); img.src=src; img.alt='photo'; img.loading='lazy'; img.decoding='async'; img.onclick=()=>openLightbox(src); g.appendChild(img);
+    })
+  }
+  function openLightbox(src){ const lb=$('#lightbox'); lb.style.display='flex'; lb.querySelector('img').src=src; lb.onclick=()=>lb.style.display='none'; }
+
+  /* --- News & Dates --- */
+  function renderNews(){
+    const n=$('#news-list'); n.innerHTML='';
+    (state.news||[]).forEach(text=>{ const card=document.createElement('div'); card.className='card pad'; card.textContent=text; n.appendChild(card); });
+    const dl=$('#dates-list'); dl.innerHTML=''; (state.dates||[]).forEach(d=>{const li=document.createElement('li'); li.textContent=d; dl.appendChild(li);})
+  }
+
+  /* --- Admin panel --- */
+  const admin=$('#admin'); const openAdmin=()=>{ const ok=prompt('Enter admin PIN',''); if(ok==='1234'){admin.style.display='flex'; loadAdminFields();} else if(ok!==null){ alert('Wrong PIN'); } }
+  $('#admin-open').onclick=openAdmin; $('#admin-open-2').onclick=openAdmin; $('#admin-close').onclick=()=>admin.style.display='none';
+
+  function loadAdminFields(){
+    $('#org-name').value=state.org.name||''; $('#org-url').value=state.org.url||''; $('#org-logo').value=state.org.logo||''; $('#org-socials').value=(state.org.socials||[]).join(', ');
+    const host=$('#camp-admin'); host.innerHTML='';
+    state.campuses.forEach((c,idx)=>{
+      const wrap=document.createElement('div'); wrap.className='card pad'; wrap.style.marginTop='.6rem';
+      wrap.innerHTML=`
+        <h4 style="margin-top:0">Campus ${idx+1}</h4>
+        <label>Name</label><input data-k="name" data-i="${idx}" value="${c.name||''}"/>
+        <label>Phone</label><input data-k="phone" data-i="${idx}" value="${c.phone||''}"/>
+        <label>WhatsApp (with country code)</label><input data-k="whatsApp" data-i="${idx}" value="${c.whatsApp||''}"/>
+        <label>Address</label><input data-k="address" data-i="${idx}" value="${c.address||''}"/>
+        <label>Timings</label><input data-k="timings" data-i="${idx}" value="${c.timings||''}"/>
+        <label>Google Map Embed URL (…&output=embed)</label><input data-k="map" data-i="${idx}" value="${c.map||''}"/>
+        <div style="margin-top:.5rem"><button class="btn secondary" data-del="${idx}">Delete</button></div>`;
+      host.appendChild(wrap);
+    });
+    $('#gallery-urls').value=(state.gallery||[]).join(', ');
+    $('#news-items').value=(state.news||[]).join('\n');
+    $('#dates-items').value=(state.dates||[]).join('\n');
+    host.querySelectorAll('[data-del]').forEach(btn=>btn.onclick=()=>{ const i=+btn.getAttribute('data-del'); state.campuses.splice(i,1); save(); loadAdminFields(); });
+  }
+
+  $('#add-campus').onclick=()=>{ state.campuses.push({id:crypto.randomUUID(),name:"New Campus",phone:"+92",whatsApp:"+92",address:"",timings:"Mon–Sat",map:""}); save(); };
+  $('#save-admin').onclick=()=>{
+    state.org.name=$('#org-name').value.trim(); state.org.url=$('#org-url').value.trim(); state.org.logo=$('#org-logo').value.trim(); state.org.socials=$('#org-socials').value.split(',').map(s=>s.trim()).filter(Boolean);
+    $$('#camp-admin [data-k]').forEach(inp=>{ const i=+inp.getAttribute('data-i'); const k=inp.getAttribute('data-k'); state.campuses[i][k]=inp.value; });
+    state.gallery=$('#gallery-urls').value.split(',').map(s=>s.trim()).filter(Boolean);
+    state.news=$('#news-items').value.split('\n').map(s=>s.trim()).filter(Boolean);
+    state.dates=$('#dates-items').value.split('\n').map(s=>s.trim()).filter(Boolean);
+    save(); admin.style.display='none';
+  }
+  $('#reset-admin').onclick=()=>{ if(confirm('Reset site to defaults?')){ localStorage.removeItem('asaas-site'); location.reload(); } }
+
+  $('#add-news').onclick=()=>openAdmin(); $('#add-date').onclick=()=>openAdmin(); $('#add-gallery').onclick=()=>openAdmin();
+
+  function renderLeadCampus(){ const sel=$('#lead-campus'); sel.innerHTML=''; state.campuses.forEach(c=>{ const o=document.createElement('option'); o.value=c.name; o.textContent=c.name; sel.appendChild(o); }); }
+
+  function updateSchema(){
+    const schema={
+      "@context":"https://schema.org",
+      "@type":"Organization",
+      "name":state.org.name,
+      "url":state.org.url,
+      "logo":state.org.logo,
+      "sameAs":state.org.socials||[],
+      "department": state.campuses.map(c=>({
+        "@type":"School",
+        "name": `${state.org.name} – ${c.name}`,
+        "address": c.address,
+        "telephone": c.phone
+      }))
+    };
+    $('#schema-json').textContent=JSON.stringify(schema,null,2);
+  }
+
+  function renderAll(){ setLang(currentLang); renderLeadCampus(); renderCampuses(); renderGallery(); renderNews(); updateSchema(); $('#year').textContent=new Date().getFullYear(); }
+  renderAll();
+
+  document.addEventListener('click', (e)=>{ const a=e.target.closest('a[href^="#"]'); if(!a) return; const id=a.getAttribute('href').slice(1); const el=document.getElementById(id); if(!el) return; e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); });
+
+  /* --- Self-tests (basic + mobile, extended) --- */
+  (function runTests(){
+    const results=[]; const pass=(n,ok)=>results.push({name:n,ok});
+    try{ const el=$('#lead-form'); pass('lead form exists', !!el); }catch{ pass('lead form exists', false); }
+    try{ const before=document.body.classList.contains('rtl'); setLang('ur'); const after=document.body.classList.contains('rtl'); setLang('en'); pass('lang toggle sets RTL', !before && after); }catch{ pass('lang toggle sets RTL', false); }
+    try{ const sel=$('#lead-campus'); const n=sel.options.length; pass('campus options populated', n>0); }catch{ pass('campus options populated', false); }
+    try{ updateSchema(); const json=$('#schema-json').textContent; const parsed=JSON.parse(json); pass('schema JSON valid', !!parsed && Array.isArray(parsed.department)); }catch(e){ pass('schema JSON valid', false); console.error('Schema JSON invalid', e); }
+    try{ const mt=document.getElementById('menu-toggle'); mt.click(); const open=document.getElementById('mobile-panel').hidden===false; mt.click(); pass('mobile menu toggles', open===true); }catch{ pass('mobile menu toggles', false); }
+    try{ const href=document.getElementById('wa-fab').getAttribute('href'); pass('WhatsApp FAB has link', /^https:\/\/wa\.me\//.test(href)); }catch{ pass('WhatsApp FAB has link', false); }
+    try{ const json=$('#schema-json').textContent; const parsed=JSON.parse(json); pass('schema departments match campuses', parsed.department.length===state.campuses.length); }catch{ pass('schema departments match campuses', false); }
+    console.table(results);
+  })();
+  </script>
+</body>
+</html>
